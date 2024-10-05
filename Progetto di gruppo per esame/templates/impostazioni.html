@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impostazioni - Fast & Go Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/impostazioni.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/settings">Impostazioni</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="settings-section">
+        <h2>Impostazioni Account</h2>
+
+        <div class="settings-grid">
+            <div class="setting-card">
+                <h3>Informazioni Personali</h3>
+                <form id="personal-info-form">
+                    <div class="input-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" value="Mario Rossi">
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" value="mario.rossi@example.com">
+                    </div>
+                    <button type="button" class="btn" onclick="saveSettings()">Salva</button>
+                </form>
+            </div>
+
+            <div class="setting-card">
+                <h3>Preferenze di Notifica</h3>
+                <form id="notification-settings-form">
+                    <div class="input-group">
+                        <label>
+                            <input type="checkbox" name="email-notifications" checked>
+                            Notifiche via Email
+                        </label>
+                    </div>
+                    <div class="input-group">
+                        <label>
+                            <input type="checkbox" name="sms-notifications">
+                            Notifiche via SMS
+                        </label>
+                    </div>
+                    <button type="button" class="btn" onclick="saveSettings()">Salva</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/impostazioni.js') }}"></script>
+</body>
+</html>

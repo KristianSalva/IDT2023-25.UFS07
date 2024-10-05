@@ -1,0 +1,41 @@
+
+    <!--<body>
+        <h1>Benvenuto {{paramUser}}</h1>
+        <p>da visualizzare la username usata nel login</p>
+        <a href="/listaUtenti">Clicca qui per visualizzare la lista degli utenti registrati</a><br>
+        <a href="/login">Clicca qui andare su Login</a><br>
+        <a href="/">Home</a>
+    </body>-->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Fast & Go Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Benvenuto in Fast & Go</h1>
+        <p>Scopri i nostri servizi per la mobilità e la gestione dei tuoi pagamenti</p>
+        <a href="/services" class="btn">Scopri di più</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>

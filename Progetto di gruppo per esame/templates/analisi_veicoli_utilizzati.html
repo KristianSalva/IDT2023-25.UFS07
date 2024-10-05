@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Veicoli Utilizzati - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analisi_veicoli_utilizzati.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/settings">Impostazioni</a></li>
+                <li><a href="/analisi_veicoli_utilizzati">Analisi Veicoli Utilizzati</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="analytics-section">
+        <h2>Analisi Veicoli Utilizzati</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo Veicolo</th>
+                    <th>Pagamento</th>
+                    <th>Numero di Veicoli Entrati</th>
+                    <th>Km Percorrenza</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Macchine</td>
+                    <td id="payment-cars">Mensile</td>
+                    <td id="number-of-cars">2000</td>
+                    <td id="km-cars">15000</td>
+                </tr>
+                <tr>
+                    <td>Motoveicoli</td>
+                    <td id="payment-motorcycles">Mensile</td>
+                    <td id="number-of-motorcycles">500</td>
+                    <td id="km-motorcycles">3000</td>
+                </tr>
+                <tr>
+                    <td>Trasporto Merci</td>
+                    <td id="payment-heavy-vehicles">Mensile</td>
+                    <td id="number-of-heavy-vehicles">800</td>
+                    <td id="km-heavy-vehicles">20000</td>
+                </tr>
+                <tr>
+                    <td>Veicoli Aziendali</td>
+                    <td id="payment-business-vehicles">Mensile</td>
+                    <td id="number-of-business-vehicles">300</td>
+                    <td id="km-business-vehicles">8000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/analisi_veicoli_utilizzati.js') }}"></script>
+</body>
+</html>

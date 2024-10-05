@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamenti - Telepass Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pagamenti.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Telepass - Pagamenti</h1>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/pagamenti">Pagamenti</a></li>
+            <li><a href="/impostazioni">Impostazioni</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>I tuoi pagamenti</h2>
+        <div class="payment-list">
+            <div class="payment-item">
+                <p>Data: 01/10/2024</p>
+                <p>Importo: € 50,00</p>
+                <button class="btn">Visualizza Dettagli</button>
+            </div>
+            <div class="payment-item">
+                <p>Data: 15/09/2024</p>
+                <p>Importo: € 70,00</p>
+                <button class="btn">Visualizza Dettagli</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/pagamenti.js') }}"></script>
+</body>
+</html>

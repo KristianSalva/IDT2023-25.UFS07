@@ -1,0 +1,67 @@
+<!--<html>
+    <body>
+        <h1>Registrazione</h1>
+        <form action="/saveuser" method="post" >
+            username: <input type="text" name="username" id="username" /><br>
+            password: <input type="text" name="password" id="password" /><br>
+            email: <input type="email" name="email" id="email" /><br>
+            <input type="submit" value="invio" />
+            <p><a href="/login">Clicca qui per tornare indietro</a></p><br>
+        </form>
+        <a href="/">Home</a>
+    </body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registrazione.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/settings">Impostazioni</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="registration-section">
+        <h2>Registrati</h2>
+        <form id="registration-form">
+            <div class="input-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Conferma Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="btn">Registrati</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/registrazione.js') }}"></script>
+</body>
+</html>

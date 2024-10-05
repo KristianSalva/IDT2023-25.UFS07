@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servizi - Fast & Go Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+</head>
+<body>
+    <script src="{{ url_for('static', filename='js/services.js') }}"></script>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="services-section">
+        <h2>I nostri servizi</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Pedaggi autostradali</h3>
+                <p>Paga i tuoi pedaggi in modo automatico senza fermarti.</p>
+            </div>
+            <div class="service-card">
+                <h3>Parcheggi</h3>
+                <p>Gestisci il pagamento del parcheggio direttamente dal tuo smartphone.</p>
+            </div>
+            <div class="service-card">
+                <h3>Noleggio auto</h3>
+                <p>Noleggia un'auto con un semplice click.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>

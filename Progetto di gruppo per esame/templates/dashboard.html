@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Fast & Go Style</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Fast & Go - Dashboard</h1>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Home</a></li>
+            <li><a href="/pagamenti">Pagamenti</a></li>
+            <li><a href="/impostazioni">Impostazioni</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>Benvenuto, [Nome Utente]!</h2>
+        <div class="stats">
+            <div class="stat-item">
+                <h3>Servizi Attivi</h3>
+                <p>4 Servizi</p>
+            </div>
+            <div class="stat-item">
+                <h3>Pagamenti Recenti</h3>
+                <p>€ 120,00</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>

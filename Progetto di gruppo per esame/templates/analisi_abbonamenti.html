@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Abbonamenti - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/analisi_abbonamenti.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/settings">Impostazioni</a></li>
+                <li><a href="/analisi_abbonamenti">Analisi Abbonamenti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="analytics-section">
+        <h2>Analisi Abbonamenti</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo Abbonamento</th>
+                    <th>Abbonamenti Venduti</th>
+                    <th>Abbonamenti Disdetti</th>
+                    <th>Media Durata Abbonamento (mesi)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Base</td>
+                    <td id="sold-base">1500</td>
+                    <td id="canceled-base">200</td>
+                    <td id="avg-duration-base">12</td>
+                </tr>
+                <tr>
+                    <td>Premium</td>
+                    <td id="sold-premium">800</td>
+                    <td id="canceled-premium">100</td>
+                    <td id="avg-duration-premium">10</td>
+                </tr>
+                <tr>
+                    <td>Aziendale</td>
+                    <td id="sold-business">300</td>
+                    <td id="canceled-business">50</td>
+                    <td id="avg-duration-business">14</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/analisi_abbonamenti.js') }}"></script>
+</body>
+</html>
