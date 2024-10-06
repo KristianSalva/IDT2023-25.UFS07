@@ -55,16 +55,8 @@ def home():
 def index():
     return render_template('index.html')
 
-# qui invece creo un controllo che gestisce la pagina admin per verificare l'utente loggato
-# come amministratore lato server, il controllo poi verrà gestito dal file Javascript.
+
     
-@appWeb.route('/admin')
-def admin():
-    if 'role' in session and session['role'] == 'admin':
-        return render_template('admin.html')
-    else:
-        flash('Accesso non autorizzato!', 'danger')
-        return redirect(url_for('login'))
 
 @appWeb.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -91,6 +83,31 @@ def login():
 
     return render_template('login.html')
 
+@appWeb.route('/register', methods = ['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        role = request.form['role']
+
+        # Verifica se le password coincidono
+        if password != confirm_password:
+            flash('Le password non coincidono!', 'danger')
+            return render_template('register.html')
+        
+        # Verifica se l'utente esiste già
+        if username in users:
+            flash('Questo username è già in uso!', 'danger')
+            return render_template('register.html')
+        
+        # Aggiungi l'utente al "database"
+        users[username] = {'password': password, 'role': role}
+        flash(f"Registrazione completata per {username}! Ora puoi effettuare il login.", 'success')
+        return redirect(url_for('login'))
+    
+    return render_template('register.html')
+
 @appWeb.route('/logout')
 def logout():
     session.pop('username', None)
@@ -98,8 +115,17 @@ def logout():
     flash('Logout eseguito con succcesso.', 'success')
     return redirect(url_for('login'))
 
+# qui invece creo un controllo che gestisce la pagina admin per verificare l'utente loggato
+# come amministratore lato server, il controllo poi verrà gestito dal file Javascript.
 
 
+@appWeb.route('/admin')
+def admin():
+    if 'role' in session and session['role'] == 'admin':
+        return render_template('admin.html')
+    else:
+        flash('Accesso non autorizzato!', 'danger')
+        return redirect(url_for('login'))
 
     
 @appWeb.route('/business_dashboard')
