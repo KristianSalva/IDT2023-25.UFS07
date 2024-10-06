@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Business - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/business_dashboard.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go - Dashboard Business</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="dashboard-section">
+        <h2>Benvenuto nella tua Dashboard Business</h2>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>Veicoli Aziendali Gestiti</h3>
+                <p id="business-vehicles-count">0</p>
+            </div>
+            <div class="stat-box">
+                <h3>Abbonamenti Business</h3>
+                <p id="business-subscriptions-count">0</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/business_dashboard.js') }}"></script>
+</body>
+</html>
