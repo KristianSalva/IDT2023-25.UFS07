@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from flask import redirect, url_for, session
+from flask import redirect, url_for, session, flash
 
 class User:
     username = None
@@ -33,6 +33,15 @@ moreno = User('moreno', 'torino', 'moreno.filograno@itsrizzoli.it')
 listaUser = [davide, aimane, kristian, alessandro, moreno]
 
 appWeb = Flask(__name__)
+appWeb.secret_key = 'your_secret_key'
+
+
+# Simulazione di un database utenti
+users = {
+    "admin": {"password": "adminpass", "role": "admin"},
+    "business": {"password": "businesspass", "role": "business"},
+    "user1": {"password": "userpass", "role": "user"}
+}
 
 @appWeb.route('/listaUtenti')
 def listaUtenti():
@@ -56,6 +65,70 @@ def admin():
     
     else:
         return redirect(url_for('login'))
+    
+
+@appWeb.route('/login', methods = ['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Controlla se l'utente esiste nel "database"
+        if username in users and users[username]['password'] == password:
+            session['username'] = username
+            session['role'] = users[username]['role']
+            flash(f'Benvenuto {username}! Sei loggato come {session['role']}.', 'success')
+
+            # Reindirizza l'utente in base al ruolo
+            if session['role'] == 'admin':
+                return redirect(url_for('admin'))
+            elif session['role'] == 'business':
+                return redirect(url_for('business_dashboard'))
+            else:
+                return redirect(url_for('user_dashboard'))
+            
+        else:
+            flash('Nome utente o password errati', 'danger')
+
+    return render_template('login.html')
+
+@appWeb.route('/logout')
+def logout():
+    session.pop('username', None)
+    session.pop('role', None)
+    flash('Logout eseguito con succcesso.', 'success')
+    return redirect(url_for('login'))
+
+
+
+@appWeb.route('/admin')
+def admin():
+    if 'role' in session and session['role'] == 'admin':
+        return render_template('admin.html')
+    else:
+        flash('Accesso non autorizzato!', 'danger')
+        return redirect(url_for('login'))
+    
+@appWeb.route('/business_dashboard')
+def business_dashboard():
+    if 'role' in session and session['role'] == 'business':
+        return render_template('business_dashboard.html')
+    else:
+        flash('Accesso non autorizzato!', 'danger')
+        return redirect(url_for('login'))
+    
+@appWeb.route('/user_dashboard')
+def user_dashboard():
+    if 'role' in session and session['role'] == 'user':
+        return render_template('user_dashboard.html')
+    else:
+        flash('Accesso non autorizzato!', 'danger')
+        return redirect(url_for('login'))
+    
+
+@appWeb.route('/user')
+def user():
+    return render_template('user.html')
 
 @appWeb.route('/services')
 def services():
@@ -89,17 +162,6 @@ def analisi_caselli():
 def analisi_veicoli_utilizzati():
     return render_template('analisi_veicoli_utilizzati.html', title = 'Analisi veicoli utilizzati')
 
-@appWeb.route('/admin')
-def admin():
-    return render_template('admin.html')
-
-@appWeb.route('/user')
-def user():
-    return render_template('user.html')
-
-@appWeb.route('/login')
-def login():
-    return render_template('login.html')
 
 @appWeb.route('/registrazione')
 def registrazione():
