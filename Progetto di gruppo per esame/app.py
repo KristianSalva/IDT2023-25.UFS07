@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask import redirect, url_for, session
 
 class User:
     username = None
@@ -44,6 +45,17 @@ def home():
 @appWeb.route('/index')
 def index():
     return render_template('index.html')
+
+# qui invece creo un controllo che gestisce la pagina admin per verificare l'utente loggato
+# come amministratore lato server, il controllo poi verrà gestito dal file Javascript.
+
+@appWeb.route('/admin')
+def admin():
+    if 'user_role' in session and session['user_role'] == 'admin':
+        return render_template('admin.html')
+    
+    else:
+        return redirect(url_for('login'))
 
 @appWeb.route('/services')
 def services():
