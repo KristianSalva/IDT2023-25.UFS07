@@ -3,11 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="login-section">
+        <h2>Accedi al tuo account</h2>
+        <form action="/login" method="POST" id="loginForm">
+            <div class="input-container">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <!-- Campo nascosto per gestire il ruolo -->
+            <input type="hidden" id="role" name="role" value="">
+
+            <div class="role-message" id="roleMessage"></div>
+
+            <button type="submit">Login</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Login e Registrazione - Fast & Go Style</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" type="text/css">
 </head>
-<body>
+<body> -->
     <!--<h1>Login</h1>
         <form action="/autenticazione" method="post" >
             username: <input type="text" name="username" id="username" /><br>
@@ -42,7 +98,7 @@
             </div>
             -->
     
-    <div class="container">
+    <!--<div class="container">
         <div class="form-container">
             <div class="form-header">
                 <h2>Accedi al tuo account</h2>
@@ -90,4 +146,5 @@
     </div>
 </body>
 </html>
+-->
 
