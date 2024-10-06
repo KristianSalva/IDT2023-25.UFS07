@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go - Registrazione</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Accedi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="register-section">
+        <h2>Crea il tuo account</h2>
+        <form action="/register" method="POST" id="registerForm">
+            <div class="input-container">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-container">
+                <label for="confirm_password">Conferma Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+
+            <div class="input-container">
+                <label for="role">Seleziona il tuo ruolo</label>
+                <select id="role" name="role" required>
+                    <option value="user">Utente Normale</option>
+                    <option value="business">Utente Business</option>
+                    <option value="admin">Amministratore</option>
+                </select>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+
+            <button type="submit">Registrati</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>
