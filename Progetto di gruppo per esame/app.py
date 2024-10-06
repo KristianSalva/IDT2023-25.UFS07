@@ -76,7 +76,7 @@ def login():
         if username in users and users[username]['password'] == password:
             session['username'] = username
             session['role'] = users[username]['role']
-            flash(f'Benvenuto {username}! Sei loggato come {session['role']}.', 'success')
+            flash(f"Benvenuto {username}! Sei loggato come {session['role']}.", 'success')
 
             # Reindirizza l'utente in base al ruolo
             if session['role'] == 'admin':
