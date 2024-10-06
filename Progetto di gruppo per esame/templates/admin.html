@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pannello Admin - Fast & Go</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <script src="{{ url_for('static', filename='js/admin.js') }}"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Fast & Go - Admin</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Servizi</a></li>
+                <li><a href="/login">Accedi</a></li>
+                <li><a href="/register">Registrati</a></li>
+                <li><a href="/admin">Pannello Admin</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="admin-section">
+        <h2>Benvenuto, Admin</h2>
+        <div class="admin-links">
+            <a href="/analisi_veicoli_utilizzati" class="admin-link">Analisi Veicoli Utilizzati</a>
+            <a href="/analisi_abbonamenti" class="admin-link">Analisi Abbonamenti</a>
+            <a href="/analisi_caselli" class="admin-link">Analisi Caselli</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Fast & Go - Tutti i diritti riservati</p>
+    </footer>
+</body>
+</html>
