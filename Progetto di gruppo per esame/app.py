@@ -57,15 +57,14 @@ def index():
 
 # qui invece creo un controllo che gestisce la pagina admin per verificare l'utente loggato
 # come amministratore lato server, il controllo poi verrà gestito dal file Javascript.
-
+    
 @appWeb.route('/admin')
 def admin():
-    if 'user_role' in session and session['user_role'] == 'admin':
+    if 'role' in session and session['role'] == 'admin':
         return render_template('admin.html')
-    
     else:
+        flash('Accesso non autorizzato!', 'danger')
         return redirect(url_for('login'))
-    
 
 @appWeb.route('/login', methods = ['GET', 'POST'])
 def login():
@@ -101,13 +100,7 @@ def logout():
 
 
 
-@appWeb.route('/admin')
-def admin():
-    if 'role' in session and session['role'] == 'admin':
-        return render_template('admin.html')
-    else:
-        flash('Accesso non autorizzato!', 'danger')
-        return redirect(url_for('login'))
+
     
 @appWeb.route('/business_dashboard')
 def business_dashboard():
